@@ -34,6 +34,7 @@ public class Castl : MonoBehaviour
             if (PositionPlatform[i].Child == null)
             {
                 PositionPlatform[i].Child = Instantiate(SwordEnemy, PositionPlatform[i].transform.position, Quaternion.identity, PositionPlatform[i].transform);
+                PositionPlatform[i].Child.GetComponent<EnemyPosition>().ParentlatformPosition = PositionPlatform[i];
                 break;
             }
         }
@@ -45,6 +46,7 @@ public class Castl : MonoBehaviour
             if (PositionPlatform[i].Child == null)
             {
                 PositionPlatform[i].Child = Instantiate(ArrowEnemy, PositionPlatform[i].transform.position, Quaternion.identity, PositionPlatform[i].transform);
+                PositionPlatform[i].Child.GetComponent<EnemyPosition>().ParentlatformPosition = PositionPlatform[i];
                 break;
             }
         }
@@ -63,11 +65,19 @@ public class Castl : MonoBehaviour
         {
             Mediate = hit.transform.gameObject; 
             Mediate.GetComponent<EnemyPosition>().Take();
+            EventManager.DooffRaycastColission(2);
         }
     }
     public void PointerUp()
     {
-        Mediate.GetComponent<EnemyPosition>().Fixed();
-        Mediate = null;
+        if (hit.transform.gameObject.tag != "Enemy")
+        {
+            if(Mediate != null)
+            {
+            Mediate.GetComponent<EnemyPosition>().Fixed();
+            Mediate = null;
+            EventManager.DooffRaycastColission(6);
+            }
+        }
     }
 }
