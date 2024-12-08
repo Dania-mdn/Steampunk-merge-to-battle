@@ -21,8 +21,6 @@ public class UI : MonoBehaviour
 
     private void StartGame()
     {
-        Health.SetActive(false);
-        StartMenu.SetActive(false);
         CinemachineVirtualCamera.Priority = 2;
     }
 }

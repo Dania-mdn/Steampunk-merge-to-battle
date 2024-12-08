@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyPosition : MonoBehaviour
 {
     private Enemy enemy;
+    private Fight fight;
     public PlatformPosition ParentlatformPosition;
     public int SwordOrArrow;
 
@@ -20,6 +21,7 @@ public class EnemyPosition : MonoBehaviour
     private void Start()
     {
         enemy = GetComponent<Enemy>();
+        fight = GetComponent<Fight>();
     }
     public void ChangeLayer(int layer)
     {
@@ -39,6 +41,8 @@ public class EnemyPosition : MonoBehaviour
             transform.position = hitDown.point;
             transform.parent = hitDown.transform;
             transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+
+            fight.enabled = true;
         }
         else if(hitDown.transform.gameObject.tag == "Platforma")
         {

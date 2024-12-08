@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4636090747557258256}
   - component: {fileID: 7010562385991069310}
   - component: {fileID: 5227972481089710579}
+  - component: {fileID: 8284508248335735690}
   m_Layer: 6
   m_Name: Sword
   m_TagString: Enemy
@@ -105,6 +106,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ParentlatformPosition: {fileID: 0}
   SwordOrArrow: 0
+--- !u!114 &8284508248335735690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6795093611146113137}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e5b29e691408c746a0989bb3d741f83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &329699284786753496
 PrefabInstance:
   m_ObjectHideFlags: 0
