@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 public class Castl : MonoBehaviour
 {
     public GameObject Platforma;
+    public SpuwnEnemy spuwnEnemy;
 
     public PlatformPosition[] PositionPlatform;
     public GameObject SwordEnemy;
@@ -35,6 +36,7 @@ public class Castl : MonoBehaviour
             {
                 PositionPlatform[i].Child = Instantiate(SwordEnemy, PositionPlatform[i].transform.position, Quaternion.identity, PositionPlatform[i].transform);
                 PositionPlatform[i].Child.GetComponent<EnemyPosition>().ParentlatformPosition = PositionPlatform[i];
+                PositionPlatform[i].Child.GetComponent<Fight>().spuwnEnemy = spuwnEnemy;
                 break;
             }
         }
@@ -47,6 +49,7 @@ public class Castl : MonoBehaviour
             {
                 PositionPlatform[i].Child = Instantiate(ArrowEnemy, PositionPlatform[i].transform.position, Quaternion.identity, PositionPlatform[i].transform);
                 PositionPlatform[i].Child.GetComponent<EnemyPosition>().ParentlatformPosition = PositionPlatform[i];
+                PositionPlatform[i].Child.GetComponent<Fight>().spuwnEnemy = spuwnEnemy;
                 break;
             }
         }

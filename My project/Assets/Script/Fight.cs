@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Fight : MonoBehaviour
 {
-
+    public SpuwnEnemy spuwnEnemy;
 }
