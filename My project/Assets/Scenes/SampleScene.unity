@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1802834, g: 0.2257135, b: 0.3069223, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3268,7 +3268,7 @@ Transform:
   m_GameObject: {fileID: 563155391}
   serializedVersion: 2
   m_LocalRotation: {x: -0.012087249, y: -0.02426651, z: -0.0011748911, w: 0.99963176}
-  m_LocalPosition: {x: 0.114999905, y: 1.055, z: -0.33851326}
+  m_LocalPosition: {x: 0.114999905, y: 1.055, z: -1.273513}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5909,7 +5909,7 @@ MonoBehaviour:
   positionSpuwn: {fileID: 1918572286}
   enemy: []
   PlayerEnemy: []
-  culdawn: 5
+  culdawn: 1.5
 --- !u!1 &989404302
 GameObject:
   m_ObjectHideFlags: 0
@@ -9450,7 +9450,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1557541882}
-  - component: {fileID: 1557541883}
   - component: {fileID: 1557541884}
   m_Layer: 0
   m_Name: CastleEnemy
@@ -9468,34 +9467,13 @@ Transform:
   m_GameObject: {fileID: 1557541881}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -0.09, y: 0.44, z: 11.1}
+  m_LocalPosition: {x: 0.27, y: 0.44, z: 10.56}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2049049037}
   m_Father: {fileID: 988536011}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!65 &1557541883
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1557541881}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2.2664294, y: 0.56886935, z: 1.1301895}
-  m_Center: {x: -0.038188696, y: -0.00015854836, z: 0.06509465}
 --- !u!114 &1557541884
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10091,7 +10069,7 @@ Transform:
   m_GameObject: {fileID: 1728283129}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.44, z: -1.54}
+  m_LocalPosition: {x: 0, y: 0.44, z: 0.5}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10390,7 +10368,7 @@ Transform:
   m_GameObject: {fileID: 1762665545}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: 2.9103834e-11, w: 1}
-  m_LocalPosition: {x: 0, y: -0.227, z: 1.5249999}
+  m_LocalPosition: {x: 0, y: -0.227, z: 0.59}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11764,7 +11742,7 @@ Transform:
   m_GameObject: {fileID: 1996892526}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.313}
+  m_LocalPosition: {x: 0, y: 0, z: -0.62199974}
   m_LocalScale: {x: 1.4, y: 0.5, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12367,7 +12345,7 @@ Transform:
   m_GameObject: {fileID: 2049049036}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.657}
   m_LocalScale: {x: 1.4, y: 0.5, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:

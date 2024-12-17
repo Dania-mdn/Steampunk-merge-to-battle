@@ -51,13 +51,13 @@ public class AFight : Fight
         Quaternion rotation = Quaternion.LookRotation(direction);
         transform.rotation = rotation;
 
-        if (distance <= 0.5f)
+        if (distance <= 3)
         {
             speed = 0;
             if (coldawn <= 0)
             {
                 Contact(target.gameObject);
-                coldawn = 2;
+                coldawn = 1;
             }
             else
             {
