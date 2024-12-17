@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 213210427189946645}
   - component: {fileID: 5772309811248023152}
-  - component: {fileID: 1801319903632924559}
+  - component: {fileID: 6848239934391726106}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: EnemyCastl
@@ -62,9 +62,9 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.61600804, y: 0.80563575, z: 0.63023275}
-  m_Center: {x: 0.0023704767, y: 0.4005818, z: -0.00000014901161}
---- !u!114 &1801319903632924559
+  m_Size: {x: 0.61600804, y: 1.201019, z: 0.63023275}
+  m_Center: {x: 0.0023704767, y: 0.20289063, z: -0.00000014901161}
+--- !u!114 &6848239934391726106
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -73,11 +73,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 9193963543135600554}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5b74e28738095d4e9393118efd5e749, type: 3}
+  m_Script: {fileID: 11500000, guid: 07c1c433a40b65d4f82eb48129dc0132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  health: 1
+  damage: 2
+  health: 4
   lvl: 0
   lvlMesh:
   - {fileID: 1868042460906464089}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7010562385991069310}
   - component: {fileID: 5227972481089710579}
   - component: {fileID: 8284508248335735690}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Sword
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -64,8 +64,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.5970466, y: 0.800895, z: 0.6112702}
-  m_Center: {x: -0.007110238, y: 0.4124332, z: -0.000000018626451}
+  m_Size: {x: 0.5970466, y: 0.94979084, z: 0.6112702}
+  m_Center: {x: -0.007110238, y: 0.33798528, z: -0.000000018626451}
 --- !u!114 &7010562385991069310
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,8 +78,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3885a17831bc1024da1c5c8dda4320e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
-  health: 2
+  damage: 2
+  health: 4
   lvl: 0
   lvlMesh:
   - {fileID: 8441487524769934325}

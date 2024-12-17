@@ -5,16 +5,48 @@ using UnityEngine;
 public class SpuwnEnemy : MonoBehaviour
 {
     public GameObject EnemyCastl;
+    public GameObject PlayerCastl;
     public GameObject prefabSword;
     public GameObject positionSpuwn;
     public GameObject[] enemy;
+    public GameObject[] PlayerEnemy;
+
+    private float time;
+    public float culdawn;
 
     private void Start()
     {
-        enemy = new GameObject[20];
+        enemy = new GameObject[50];
         enemy[0] = EnemyCastl;
-        SpuwnSword();
+        PlayerEnemy = new GameObject[50];
+        PlayerEnemy[0] = PlayerCastl;
+        time = culdawn;
     }
+    public void AddPlayerEnemy(GameObject playerEnemy)
+    {
+        for (int i = 0; i < PlayerEnemy.Length; i++)
+        {
+            if (PlayerEnemy[i] == null)
+            {
+                PlayerEnemy[i] = playerEnemy;
+                break;
+            }
+        }
+    }
+
+    private void Update()
+    {
+        if(time <= 0)
+        {
+            SpuwnSword();
+            time = culdawn;
+        }
+        else
+        {
+            time = time - Time.deltaTime;
+        }
+    }
+
     public void SpuwnSword()
     {
         for (int i = 0; i < enemy.Length; i++)
@@ -22,6 +54,7 @@ public class SpuwnEnemy : MonoBehaviour
             if (enemy[i] == null)
             {
                 enemy[i] = Instantiate(prefabSword, positionSpuwn.transform.position, Quaternion.identity, gameObject.transform);
+                enemy[i].GetComponent<Bot>().spuwnEnemy = this;
                 break;
             }
         }

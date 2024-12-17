@@ -7,6 +7,9 @@ using UnityEngine.UIElements;
 
 public class Castl : MonoBehaviour
 {
+    public int Health = 5;
+
+    public GameObject Enviroment;
     public GameObject Platforma;
     public SpuwnEnemy spuwnEnemy;
 
@@ -16,7 +19,6 @@ public class Castl : MonoBehaviour
 
     private RaycastHit hit;
     private GameObject Mediate;
-    private GameObject TargetUpgrade;
     private Ray ray;
 
     private void Start()
@@ -36,7 +38,9 @@ public class Castl : MonoBehaviour
             {
                 PositionPlatform[i].Child = Instantiate(SwordEnemy, PositionPlatform[i].transform.position, Quaternion.identity, PositionPlatform[i].transform);
                 PositionPlatform[i].Child.GetComponent<EnemyPosition>().ParentlatformPosition = PositionPlatform[i];
+                PositionPlatform[i].Child.GetComponent<EnemyPosition>().Enviroment = Enviroment;
                 PositionPlatform[i].Child.GetComponent<Fight>().spuwnEnemy = spuwnEnemy;
+                spuwnEnemy.AddPlayerEnemy(PositionPlatform[i].Child);
                 break;
             }
         }
@@ -50,6 +54,8 @@ public class Castl : MonoBehaviour
                 PositionPlatform[i].Child = Instantiate(ArrowEnemy, PositionPlatform[i].transform.position, Quaternion.identity, PositionPlatform[i].transform);
                 PositionPlatform[i].Child.GetComponent<EnemyPosition>().ParentlatformPosition = PositionPlatform[i];
                 PositionPlatform[i].Child.GetComponent<Fight>().spuwnEnemy = spuwnEnemy;
+                PositionPlatform[i].Child.GetComponent<EnemyPosition>().Enviroment = Enviroment;
+                spuwnEnemy.AddPlayerEnemy(PositionPlatform[i].Child);
                 break;
             }
         }
@@ -81,6 +87,17 @@ public class Castl : MonoBehaviour
             Mediate = null;
             EventManager.DooffRaycastColission(6);
             }
+        }
+    }
+    public void HitCastl()
+    {
+        if (Health - 1 > 0)
+        {
+            Health = Health - 1;
+        }
+        else
+        {
+
         }
     }
 }

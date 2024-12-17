@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyPosition : MonoBehaviour
 {
+    public GameObject Enviroment;
     private Enemy enemy;
     private Fight fight;
     public PlatformPosition ParentlatformPosition;
@@ -39,7 +40,7 @@ public class EnemyPosition : MonoBehaviour
         if (hitDown.transform.gameObject.tag == "Arena")
         {
             transform.position = hitDown.point;
-            transform.parent = hitDown.transform;
+            transform.parent = Enviroment.transform;
             transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
 
             fight.enabled = true;
