@@ -8,5 +8,7 @@ public class Arrow : Enemy
     {
         enemyPosition = GetComponent<EnemyPosition>();
         enemyPosition.SwordOrArrow = 1;
+        slider.maxValue = health;
+        slider.value = health;
     }
 }

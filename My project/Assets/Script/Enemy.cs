@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Enemy : MonoBehaviour
     public int health;
     public int lvl;
     public GameObject[] lvlMesh;
+    public Slider slider;
 
     public void SetNewLvL()
     {
@@ -32,6 +34,7 @@ public class Enemy : MonoBehaviour
         if(health - damage > 0)
         {
             health = health - damage;
+            slider.value = health;
         }
         else
         {

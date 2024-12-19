@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 
 public class Castl : MonoBehaviour
 {
-    public int Health = 5;
+    private int Health;
 
     public GameObject Enviroment;
     public GameObject Platforma;
@@ -21,14 +21,18 @@ public class Castl : MonoBehaviour
     private GameObject Mediate;
     private Ray ray;
 
+    public UI ui;
+
     private void Start()
     {
         Platforma.SetActive(false);
     }
     public void StartGame()
     {
+        Health = ui.healthCastl;
         Platforma.SetActive(true);
         EventManager.DoStartGame();
+        spuwnEnemy.startGame = true;
     }
     public void SpuwnSword()
     {
@@ -70,11 +74,14 @@ public class Castl : MonoBehaviour
     }
     public void PointerDown()
     {
-        if(hit.transform.gameObject.tag == "Enemy")
+        if(hit.transform.gameObject != null)
         {
-            Mediate = hit.transform.gameObject; 
-            Mediate.GetComponent<EnemyPosition>().Take();
-            EventManager.DooffRaycastColission(2);
+            if (hit.transform.gameObject.tag == "Enemy")
+            {
+                Mediate = hit.transform.gameObject;
+                Mediate.GetComponent<EnemyPosition>().Take();
+                EventManager.DooffRaycastColission(2);
+            }
         }
     }
     public void PointerUp()
@@ -94,6 +101,7 @@ public class Castl : MonoBehaviour
         if (Health - 1 > 0)
         {
             Health = Health - 1;
+            ui.SetHealth(1);
         }
         else
         {

@@ -13,6 +13,7 @@ public class SpuwnEnemy : MonoBehaviour
 
     private float time;
     public float culdawn;
+    public bool startGame = false;
 
     private void Start()
     {
@@ -36,6 +37,8 @@ public class SpuwnEnemy : MonoBehaviour
 
     private void Update()
     {
+        if (!startGame) return;
+
         if(time <= 0)
         {
             SpuwnSword();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Bot : MonoBehaviour
 {
@@ -16,10 +17,13 @@ public class Bot : MonoBehaviour
     private float distance;
     private int j;
     private float coldawn;
+    public Slider slider;
 
     private void Start()
     {
         distance = Vector3.Distance(transform.position, spuwnEnemy.PlayerEnemy[0].transform.position);
+        slider.maxValue = health;
+        slider.value = health;
     }
 
     private void Update()
@@ -110,6 +114,7 @@ public class Bot : MonoBehaviour
         if (health - damage > 0)
         {
             health = health - damage;
+            slider.value = health;
         }
         else
         {

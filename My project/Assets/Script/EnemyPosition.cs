@@ -45,9 +45,9 @@ public class EnemyPosition : MonoBehaviour
 
             fight.enabled = true;
         }
-        else if(hitDown.transform.gameObject.tag == "Platforma")
+        else if (hitDown.transform.gameObject.tag == "Platforma")
         {
-            if (hitDown.transform.gameObject.GetComponent<PlatformPosition>().Child == null)
+            if (hitDown.transform.gameObject.GetComponent<PlatformPosition>().Child == null || hitDown.transform.gameObject.GetComponent<PlatformPosition>().Child == transform.gameObject)
             {
                 ParentlatformPosition.Child = null;
                 transform.position = hitDown.transform.position;
