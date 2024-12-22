@@ -79,8 +79,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3885a17831bc1024da1c5c8dda4320e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
-  health: 4
+  damage: 1
+  health: 1
   lvl: 0
   lvlMesh:
   - {fileID: 8441487524769934325}
@@ -106,6 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 260291fe883ee4c468eff9798f174ee7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spuwnEnemy: {fileID: 0}
   Enviroment: {fileID: 0}
   ParentlatformPosition: {fileID: 0}
   SwordOrArrow: 0

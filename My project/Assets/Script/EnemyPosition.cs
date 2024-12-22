@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyPosition : MonoBehaviour
 {
+    public SpuwnEnemy spuwnEnemy;
     public GameObject Enviroment;
     private Enemy enemy;
     private Fight fight;
@@ -42,6 +43,7 @@ public class EnemyPosition : MonoBehaviour
             transform.position = hitDown.point;
             transform.parent = Enviroment.transform;
             transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+            spuwnEnemy.AddPlayerEnemy(gameObject);
 
             fight.enabled = true;
         }

@@ -34,7 +34,8 @@ public class SFight : Fight
         }
         else
         {
-            target = spuwnEnemy.enemy[0].transform;
+            target = spuwnEnemy.enemy[0].transform; 
+            distance = Vector3.Distance(transform.position, spuwnEnemy.enemy[0].transform.position);
         }
 
         transform.Translate(Vector3.forward * speed * Time.deltaTime);

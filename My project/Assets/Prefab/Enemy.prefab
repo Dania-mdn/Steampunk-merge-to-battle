@@ -79,7 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   spuwnEnemy: {fileID: 0}
-  damage: 2
+  damage: 1
   health: 4
   lvl: 0
   lvlMesh:
@@ -535,22 +535,22 @@ PrefabInstance:
     - target: {fileID: 272966697732654631, guid: d4bb22ea7a750a642878666793844459,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.016
+      value: 0.073
       objectReference: {fileID: 0}
     - target: {fileID: 272966697732654631, guid: d4bb22ea7a750a642878666793844459,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 0.9984427
       objectReference: {fileID: 0}
     - target: {fileID: 272966697732654631, guid: d4bb22ea7a750a642878666793844459,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: 0.05578661
       objectReference: {fileID: 0}
     - target: {fileID: 272966697732654631, guid: d4bb22ea7a750a642878666793844459,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 272966697732654631, guid: d4bb22ea7a750a642878666793844459,
         type: 3}
@@ -565,17 +565,17 @@ PrefabInstance:
     - target: {fileID: 272966697732654631, guid: d4bb22ea7a750a642878666793844459,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 272966697732654631, guid: d4bb22ea7a750a642878666793844459,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 6.396
       objectReference: {fileID: 0}
     - target: {fileID: 272966697732654631, guid: d4bb22ea7a750a642878666793844459,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 272966697732654631, guid: d4bb22ea7a750a642878666793844459,
         type: 3}
@@ -591,6 +591,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3601973624663796785, guid: d4bb22ea7a750a642878666793844459,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.9961947
+      objectReference: {fileID: 0}
+    - target: {fileID: 3601973624663796785, guid: d4bb22ea7a750a642878666793844459,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.08715578
+      objectReference: {fileID: 0}
+    - target: {fileID: 3601973624663796785, guid: d4bb22ea7a750a642878666793844459,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3601973624663796785, guid: d4bb22ea7a750a642878666793844459,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3601973624663796785, guid: d4bb22ea7a750a642878666793844459,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4237223679243254549, guid: d4bb22ea7a750a642878666793844459,
         type: 3}

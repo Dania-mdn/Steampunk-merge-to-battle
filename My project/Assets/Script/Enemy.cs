@@ -28,6 +28,8 @@ public class Enemy : MonoBehaviour
         }
         damage = damage * 2;
         health = health * 2;
+        slider.maxValue = health;
+        slider.value = health;
     }
     public void hit(int damage)
     {

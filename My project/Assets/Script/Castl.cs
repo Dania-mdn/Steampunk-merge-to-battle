@@ -9,6 +9,7 @@ public class Castl : MonoBehaviour
 {
     private int Health;
 
+    public GameObject[] Tower;
     public GameObject Enviroment;
     public GameObject Platforma;
     public SpuwnEnemy spuwnEnemy;
@@ -43,8 +44,8 @@ public class Castl : MonoBehaviour
                 PositionPlatform[i].Child = Instantiate(SwordEnemy, PositionPlatform[i].transform.position, Quaternion.identity, PositionPlatform[i].transform);
                 PositionPlatform[i].Child.GetComponent<EnemyPosition>().ParentlatformPosition = PositionPlatform[i];
                 PositionPlatform[i].Child.GetComponent<EnemyPosition>().Enviroment = Enviroment;
+                PositionPlatform[i].Child.GetComponent<EnemyPosition>().spuwnEnemy = spuwnEnemy;
                 PositionPlatform[i].Child.GetComponent<Fight>().spuwnEnemy = spuwnEnemy;
-                spuwnEnemy.AddPlayerEnemy(PositionPlatform[i].Child);
                 break;
             }
         }
@@ -59,7 +60,7 @@ public class Castl : MonoBehaviour
                 PositionPlatform[i].Child.GetComponent<EnemyPosition>().ParentlatformPosition = PositionPlatform[i];
                 PositionPlatform[i].Child.GetComponent<Fight>().spuwnEnemy = spuwnEnemy;
                 PositionPlatform[i].Child.GetComponent<EnemyPosition>().Enviroment = Enviroment;
-                spuwnEnemy.AddPlayerEnemy(PositionPlatform[i].Child);
+                PositionPlatform[i].Child.GetComponent<EnemyPosition>().spuwnEnemy = spuwnEnemy;
                 break;
             }
         }
@@ -105,7 +106,21 @@ public class Castl : MonoBehaviour
         }
         else
         {
-
+            EventManager.DoEndGame();
+        }
+    }
+    public void SpuwnTower() 
+    { 
+        if(Tower[0].activeSelf == false)
+        {
+            Tower[0].SetActive(true);
+            ui.Tower.text = 1.ToString();
+        }
+        else if(Tower[1].activeSelf == false)
+        {
+            Tower[1].SetActive(true);
+            ui.Tower.text = 2.ToString();
+            Destroy(ui.TowerAd);
         }
     }
 }

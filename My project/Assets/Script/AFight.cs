@@ -19,20 +19,13 @@ public class AFight : Fight
 
     private void Update()
     {
-        for (int i = 0; i < spuwnEnemy.enemy.Length; i++)
+        for (int i = 1; i < spuwnEnemy.enemy.Length; i++)
         {
             if (spuwnEnemy.enemy[i] != null)
             {
-                if (distance > Vector3.Distance(transform.position, spuwnEnemy.enemy[i].transform.position))
-                {
-                    distance = Vector3.Distance(transform.position, spuwnEnemy.enemy[i].transform.position);
-                    j = i;
-                }
-                else
-                {
-                    distance = Vector3.Distance(transform.position, spuwnEnemy.PlayerEnemy[0].transform.position);
-                    j = i;
-                }
+                distance = Vector3.Distance(transform.position, spuwnEnemy.enemy[i].transform.position);
+                j = i;
+                break;
             }
         }
         if (spuwnEnemy.enemy[j] != null)
@@ -42,6 +35,7 @@ public class AFight : Fight
         else
         {
             target = spuwnEnemy.enemy[0].transform;
+            distance = Vector3.Distance(transform.position, spuwnEnemy.enemy[0].transform.position);
         }
 
         transform.Translate(Vector3.forward * speed * Time.deltaTime);

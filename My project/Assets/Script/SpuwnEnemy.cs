@@ -15,6 +15,20 @@ public class SpuwnEnemy : MonoBehaviour
     public float culdawn;
     public bool startGame = false;
 
+    private void OnEnable()
+    {
+        EventManager.EndGame += setSpuwnEnemy;
+        EventManager.WeenGame += setSpuwnEnemy;
+    }
+    private void OnDisable()
+    {
+        EventManager.EndGame -= setSpuwnEnemy;
+        EventManager.WeenGame -= setSpuwnEnemy;
+    }
+    private void setSpuwnEnemy()
+    {
+        startGame = false;
+    }
     private void Start()
     {
         enemy = new GameObject[50];

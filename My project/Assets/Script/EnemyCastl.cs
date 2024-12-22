@@ -20,9 +20,11 @@ public class EnemyCastl : MonoBehaviour
             Health = Health - 1;
             slider.value = Health;
         }
-        else
+        else if(Health == 1)
         {
-
+            Health = 0;
+            slider.value = Health;
+            EventManager.DoWeenGame();
         }
     }
 }
