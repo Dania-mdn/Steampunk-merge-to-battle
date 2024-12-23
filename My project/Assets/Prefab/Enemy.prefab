@@ -79,8 +79,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   spuwnEnemy: {fileID: 0}
-  damage: 1
-  health: 4
+  damage: 3
+  health: 17
   lvl: 0
   lvlMesh:
   - {fileID: 1868042460906464089}
@@ -94,6 +94,7 @@ MonoBehaviour:
   - {fileID: 500221237625051311}
   - {fileID: 371060564389433935}
   slider: {fileID: 8236422408061837552}
+  hptxt: {fileID: 1937018894281959687}
 --- !u!1001 &113462395697483800
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -637,6 +638,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d4bb22ea7a750a642878666793844459, type: 3}
+--- !u!114 &1937018894281959687 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5410630352681059403, guid: d4bb22ea7a750a642878666793844459,
+    type: 3}
+  m_PrefabInstance: {fileID: 5906409100180532556}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5926176408479525739 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 272966697732654631, guid: d4bb22ea7a750a642878666793844459,

@@ -4,6 +4,7 @@ using System.Reflection;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Bot : MonoBehaviour
 {
@@ -18,11 +19,13 @@ public class Bot : MonoBehaviour
     private int j;
     private float coldawn;
     public Slider slider;
+    public TextMeshProUGUI hptxt;
 
     private void Start()
     {
         distance = Vector3.Distance(transform.position, spuwnEnemy.PlayerEnemy[0].transform.position);
         slider.maxValue = health;
+        hptxt.text = slider.maxValue.ToString();
         slider.value = health;
     }
 
@@ -115,6 +118,7 @@ public class Bot : MonoBehaviour
         {
             health = health - damage;
             slider.value = health;
+            hptxt.text = slider.value.ToString();
         }
         else
         {

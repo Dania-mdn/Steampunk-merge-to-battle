@@ -94,6 +94,7 @@ MonoBehaviour:
   - {fileID: 8133696481704685227}
   - {fileID: 2492776504877108443}
   slider: {fileID: 2009608804386027349}
+  hptxt: {fileID: 8309029635474046626}
 --- !u!114 &5227972481089710579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +111,7 @@ MonoBehaviour:
   Enviroment: {fileID: 0}
   ParentlatformPosition: {fileID: 0}
   SwordOrArrow: 0
+  startPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &8284508248335735690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -630,6 +632,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 4060542404978014953}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8309029635474046626 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5410630352681059403, guid: d4bb22ea7a750a642878666793844459,
+    type: 3}
+  m_PrefabInstance: {fileID: 4060542404978014953}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4261556725453290256
 PrefabInstance:
   m_ObjectHideFlags: 0

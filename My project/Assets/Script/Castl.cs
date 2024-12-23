@@ -37,31 +37,43 @@ public class Castl : MonoBehaviour
     }
     public void SpuwnSword()
     {
-        for (int i = 0; i < PositionPlatform.Length; i++)
+        if (ui.Money - 10 > -1)
         {
-            if (PositionPlatform[i].Child == null)
+            ui.Money = ui.Money - 10;
+            ui.MoneyText.text = ui.Money.ToString();
+
+            for (int i = 0; i < PositionPlatform.Length; i++)
             {
-                PositionPlatform[i].Child = Instantiate(SwordEnemy, PositionPlatform[i].transform.position, Quaternion.identity, PositionPlatform[i].transform);
-                PositionPlatform[i].Child.GetComponent<EnemyPosition>().ParentlatformPosition = PositionPlatform[i];
-                PositionPlatform[i].Child.GetComponent<EnemyPosition>().Enviroment = Enviroment;
-                PositionPlatform[i].Child.GetComponent<EnemyPosition>().spuwnEnemy = spuwnEnemy;
-                PositionPlatform[i].Child.GetComponent<Fight>().spuwnEnemy = spuwnEnemy;
-                break;
+                if (PositionPlatform[i].Child == null)
+                {
+                    PositionPlatform[i].Child = Instantiate(SwordEnemy, PositionPlatform[i].transform.position, Quaternion.identity, PositionPlatform[i].transform);
+                    PositionPlatform[i].Child.GetComponent<EnemyPosition>().ParentlatformPosition = PositionPlatform[i];
+                    PositionPlatform[i].Child.GetComponent<EnemyPosition>().Enviroment = Enviroment;
+                    PositionPlatform[i].Child.GetComponent<EnemyPosition>().spuwnEnemy = spuwnEnemy;
+                    PositionPlatform[i].Child.GetComponent<Fight>().spuwnEnemy = spuwnEnemy;
+                    break;
+                }
             }
         }
     }
     public void SpuwnArrow()
     {
-        for (int i = 0; i < PositionPlatform.Length; i++)
+        if (ui.Money - 10 > -1)
         {
-            if (PositionPlatform[i].Child == null)
+            ui.Money = ui.Money - 10;
+            ui.MoneyText.text = ui.Money.ToString();
+
+            for (int i = 0; i < PositionPlatform.Length; i++)
             {
-                PositionPlatform[i].Child = Instantiate(ArrowEnemy, PositionPlatform[i].transform.position, Quaternion.identity, PositionPlatform[i].transform);
-                PositionPlatform[i].Child.GetComponent<EnemyPosition>().ParentlatformPosition = PositionPlatform[i];
-                PositionPlatform[i].Child.GetComponent<Fight>().spuwnEnemy = spuwnEnemy;
-                PositionPlatform[i].Child.GetComponent<EnemyPosition>().Enviroment = Enviroment;
-                PositionPlatform[i].Child.GetComponent<EnemyPosition>().spuwnEnemy = spuwnEnemy;
-                break;
+                if (PositionPlatform[i].Child == null)
+                {
+                    PositionPlatform[i].Child = Instantiate(ArrowEnemy, PositionPlatform[i].transform.position, Quaternion.identity, PositionPlatform[i].transform);
+                    PositionPlatform[i].Child.GetComponent<EnemyPosition>().ParentlatformPosition = PositionPlatform[i];
+                    PositionPlatform[i].Child.GetComponent<Fight>().spuwnEnemy = spuwnEnemy;
+                    PositionPlatform[i].Child.GetComponent<EnemyPosition>().Enviroment = Enviroment;
+                    PositionPlatform[i].Child.GetComponent<EnemyPosition>().spuwnEnemy = spuwnEnemy;
+                    break;
+                }
             }
         }
     }
@@ -91,9 +103,9 @@ public class Castl : MonoBehaviour
         {
             if(Mediate != null)
             {
-            Mediate.GetComponent<EnemyPosition>().Fixed();
-            Mediate = null;
-            EventManager.DooffRaycastColission(6);
+                Mediate.GetComponent<EnemyPosition>().Fixed();
+                Mediate = null;
+                EventManager.DooffRaycastColission(6);
             }
         }
     }
@@ -110,17 +122,27 @@ public class Castl : MonoBehaviour
         }
     }
     public void SpuwnTower() 
-    { 
-        if(Tower[0].activeSelf == false)
+    {
+        if (ui.Cristal - ui.tPrice > -1)
         {
-            Tower[0].SetActive(true);
-            ui.Tower.text = 1.ToString();
-        }
-        else if(Tower[1].activeSelf == false)
-        {
-            Tower[1].SetActive(true);
-            ui.Tower.text = 2.ToString();
-            Destroy(ui.TowerAd);
+            ui.Cristal = ui.Cristal - ui.tPrice;
+            ui.CristalText.text = ui.Cristal.ToString();
+
+            if (Tower[0].activeSelf == false)
+            {
+                Tower[0].SetActive(true);
+                ui.Tower.text = 1.ToString();
+                ui.tPrice = ui.tPrice + ui.tPriceAd;
+                ui.tPriceText.text = ui.tPrice.ToString();
+            }
+            else if (Tower[1].activeSelf == false)
+            {
+                Tower[1].SetActive(true);
+                ui.Tower.text = 2.ToString();
+                Destroy(ui.TowerAd);
+                ui.tPrice = 0;
+                ui.tPriceText.text = "MAX";
+            }
         }
     }
 }

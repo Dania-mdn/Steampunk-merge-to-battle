@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Enemy : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Enemy : MonoBehaviour
     public int lvl;
     public GameObject[] lvlMesh;
     public Slider slider;
+    public TextMeshProUGUI hptxt;
 
     public void SetNewLvL()
     {
@@ -29,6 +31,7 @@ public class Enemy : MonoBehaviour
         damage = damage * 2;
         health = health * 2;
         slider.maxValue = health;
+        hptxt.text = slider.maxValue.ToString();
         slider.value = health;
     }
     public void hit(int damage)
@@ -37,6 +40,7 @@ public class Enemy : MonoBehaviour
         {
             health = health - damage;
             slider.value = health;
+            hptxt.text = slider.value.ToString();
         }
         else
         {

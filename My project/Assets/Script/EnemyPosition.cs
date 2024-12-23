@@ -10,6 +10,7 @@ public class EnemyPosition : MonoBehaviour
     private Fight fight;
     public PlatformPosition ParentlatformPosition;
     public int SwordOrArrow;
+    public Vector3 startPosition;
 
     private void OnEnable()
     {
@@ -31,7 +32,8 @@ public class EnemyPosition : MonoBehaviour
     }
     public void Take()
     {
-
+        ParentlatformPosition.Child = null;
+        startPosition = transform.position;
     }
     public void Fixed()
     {
@@ -49,9 +51,8 @@ public class EnemyPosition : MonoBehaviour
         }
         else if (hitDown.transform.gameObject.tag == "Platforma")
         {
-            if (hitDown.transform.gameObject.GetComponent<PlatformPosition>().Child == null || hitDown.transform.gameObject.GetComponent<PlatformPosition>().Child == transform.gameObject)
+            if (hitDown.transform.gameObject.GetComponent<PlatformPosition>().Child == null)
             {
-                ParentlatformPosition.Child = null;
                 transform.position = hitDown.transform.position;
                 transform.parent = hitDown.transform;
                 hitDown.transform.gameObject.GetComponent<PlatformPosition>().Child = transform.gameObject;
@@ -66,7 +67,6 @@ public class EnemyPosition : MonoBehaviour
                         enemy.SetNewLvL();
                         Destroy(hitDown.transform.gameObject.GetComponent<PlatformPosition>().Child);
 
-                        ParentlatformPosition.Child = null;
                         transform.position = hitDown.transform.position;
                         transform.parent = hitDown.transform;
                         hitDown.transform.gameObject.GetComponent<PlatformPosition>().Child = transform.gameObject;

@@ -10,9 +10,11 @@ public class AFight : Fight
     private float coldawn;
     private float distance;
     private int j;
+    private Animation Gun;
 
     private void Start()
     {
+        Gun = GetComponent<Animation>();
         enemy = GetComponent<Enemy>();
         distance = Vector3.Distance(transform.position, spuwnEnemy.enemy[0].transform.position);
     }
@@ -69,6 +71,7 @@ public class AFight : Fight
     {
         if (collision.GetComponent<Bot>() != null)
         {
+            Gun.Play();
             collision.GetComponent<Bot>().hit(enemy.damage);
             coldawn = 2;
         }
