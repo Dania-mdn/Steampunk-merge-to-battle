@@ -8,6 +8,8 @@ using TMPro;
 
 public class UI : MonoBehaviour
 {
+    public GameObject tablo;
+    public GameObject tablo2;
     public int Cristal;
     public TextMeshProUGUI CristalText;
     public int Money;
@@ -111,6 +113,10 @@ public class UI : MonoBehaviour
             IncomeCountTxt.text = IncomeCount.ToString();
         }
         SliderIncome.value = time;
+
+        tablo.transform.Rotate(0, 0, -200 * Time.deltaTime);
+        tablo2.transform.Rotate(0, 0, -200 * Time.deltaTime);
+        Debug.Log(tablo.transform.eulerAngles.z);
     }
     public void AddIncome()
     {
