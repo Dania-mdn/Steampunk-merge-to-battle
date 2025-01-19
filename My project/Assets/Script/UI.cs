@@ -5,9 +5,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
+    public TextMeshProUGUI lvlTitle;
+    private int lvl;
+    public int loosePrizecoef = 15;
+    private int loosePrize;
+    private int winnPrize;
+    private int coef;
+    public TextMeshProUGUI LoosForCoef;
+    public TextMeshProUGUI WinForCoef;
+    public TextMeshProUGUI loosePrizeText;
+    public TextMeshProUGUI WinnPrizeText;
     public GameObject tablo;
     public GameObject tablo2;
     public int Cristal;
@@ -72,17 +83,19 @@ public class UI : MonoBehaviour
         EventManager.StartGame += StartGame;
         EventManager.EndGame += SetLoose;
         EventManager.WeenGame += SetWeen;
+        EventManager.addMoney += AddMoney;
     }
     private void OnDisable()
     {
         EventManager.StartGame -= StartGame;
-        EventManager.EndGame += SetLoose;
-        EventManager.WeenGame += SetWeen;
+        EventManager.EndGame -= SetLoose;
+        EventManager.WeenGame -= SetWeen;
+        EventManager.addMoney -= AddMoney;
     }
     private void Start()
     {
         SliderIncome.maxValue = Coldawn;
-        IncomeCountTxt.text = IncomeCount.ToString();
+        IncomeCountTxt.text = IncomeCount.ToString() + "C";
         IncomeCountTxtButton.text = IncomeCountAdd.ToString();
         SwordHP.text = swordHP.ToString();
         ArrowHP.text = arrowHP.ToString();
@@ -93,12 +106,23 @@ public class UI : MonoBehaviour
         PlayerPrefs.SetInt("arrowHP", arrowHP);
         PlayerPrefs.SetInt("arrowDamage", arrowDamage);
 
-        CristalText.text = Cristal.ToString();
-        tPriceText.text = tPrice.ToString();
-        iPriceText.text = iPrice.ToString();
-        hPriceText.text = hPrice.ToString();
-        sPriceText.text = sPrice.ToString();
-        aPriceText.text = aPrice.ToString();
+        CristalText.text = Cristal.ToString() + "C";
+        tPriceText.text = tPrice.ToString() + "C";
+        iPriceText.text = iPrice.ToString() + "C";
+        hPriceText.text = hPrice.ToString() + "C";
+        sPriceText.text = sPrice.ToString() + "C";
+        aPriceText.text = aPrice.ToString() + "C";
+
+        if (PlayerPrefs.HasKey("lvl"))
+        {
+            lvl = PlayerPrefs.GetInt("lvl");
+        }
+        else
+        {
+            lvl = 1;
+        }
+
+        lvlTitle.text = "LVL" + lvl.ToString();
     }
     private void Update()
     {
@@ -110,24 +134,52 @@ public class UI : MonoBehaviour
         {
             time = 0;
             IncomeCount = IncomeCount + IncomeCountAdd;
-            IncomeCountTxt.text = IncomeCount.ToString();
+            IncomeCountTxt.text = IncomeCount.ToString() + "C";
         }
         SliderIncome.value = time;
 
         tablo.transform.Rotate(0, 0, -200 * Time.deltaTime);
         tablo2.transform.Rotate(0, 0, -200 * Time.deltaTime);
-        Debug.Log(tablo.transform.eulerAngles.z);
+
+        float currentZRotation = tablo.transform.eulerAngles.z;
+        if (currentZRotation < 360 && currentZRotation > 300)
+        {
+            coef = 3;
+        }
+        else if (currentZRotation < 300 && currentZRotation > 240)
+        {
+            coef = 2;
+        }
+        else if (currentZRotation < 240 && currentZRotation > 180)
+        {
+            coef = 1;
+        }
+        else if (currentZRotation < 180 && currentZRotation > 120)
+        {
+            coef = 3;
+        }
+        else if (currentZRotation < 120 && currentZRotation > 60)
+        {
+            coef = 2;
+        }
+        else if (currentZRotation < 60 && currentZRotation > 0)
+        {
+            coef = 1;
+        }
+
+        WinForCoef.text = (winnPrize * coef).ToString();
+        LoosForCoef.text = (loosePrize * coef).ToString();
     }
     public void AddIncome()
     {
         if (Cristal - iPrice > -1)
         {
             Cristal = Cristal - iPrice;
-            CristalText.text = Cristal.ToString();
+            CristalText.text = Cristal.ToString() + "C";
             IncomeCountAdd = IncomeCountAdd + 5;
             IncomeCountTxtButton.text = IncomeCountAdd.ToString();
             iPrice = iPrice + iPriceAd;
-            iPriceText.text = iPrice.ToString();
+            iPriceText.text = iPrice.ToString() + "C";
         }
     }
     private void StartGame()
@@ -144,30 +196,36 @@ public class UI : MonoBehaviour
         if(Cristal - hPrice > -1)
         {
             Cristal = Cristal - hPrice;
-            CristalText.text = Cristal.ToString();
+            CristalText.text = Cristal.ToString() + "C";
             healthCastl = healthCastl + health;
             healthCastltxt.text = healthCastl.ToString();
             healthCastltxtButton.text = healthCastl.ToString();
             hPrice = hPrice + hPriceAd;
-            hPriceText.text = hPrice.ToString();
+            hPriceText.text = hPrice.ToString() + "C";
         }
     }
-    public void SetWeen()
+    public void AddCrystalWinn()
     {
-        Ween.SetActive(true);
-        Enemy.SetActive(false);
+        Cristal = Cristal + winnPrize;
+        CristalText.text = Cristal.ToString() + "C";
+
+        IncomeCount = 0;
+        IncomeCountTxt.text = IncomeCount.ToString() + "C";
     }
-    public void SetLoose()
+    public void AddCrystalLoose()
     {
-        Loose.SetActive(true);
-        Enemy.SetActive(false);
+        Cristal = Cristal + loosePrize;
+        CristalText.text = Cristal.ToString() + "C";
+
+        IncomeCount = 0;
+        IncomeCountTxt.text = IncomeCount.ToString() + "C";
     }
     public void UpSword()
     {
         if (Cristal - sPrice > -1)
         {
             Cristal = Cristal - sPrice;
-            CristalText.text = Cristal.ToString();
+            CristalText.text = Cristal.ToString() + "C";
 
             swordHP = swordHP + 10;
             PlayerPrefs.SetInt("swordHP", swordHP);
@@ -178,7 +236,7 @@ public class UI : MonoBehaviour
             SwordDamage.text = swordDamage.ToString();
 
             sPrice = sPrice + sPriceAd;
-            sPriceText.text = sPrice.ToString();
+            sPriceText.text = sPrice.ToString() + "C";
         }
     }
     public void UpArrow()
@@ -186,7 +244,7 @@ public class UI : MonoBehaviour
         if (Cristal - aPrice > -1)
         {
             Cristal = Cristal - aPrice;
-            CristalText.text = Cristal.ToString();
+            CristalText.text = Cristal.ToString() + "C";
 
             arrowHP = arrowHP + 8;
             PlayerPrefs.SetInt("arrowHP", arrowHP);
@@ -197,15 +255,59 @@ public class UI : MonoBehaviour
             ArrowDamage.text = arrowDamage.ToString();
 
             aPrice = aPrice + aPriceAd;
-            aPriceText.text = aPrice.ToString();
+            aPriceText.text = aPrice.ToString() + "C";
         }
     }
     public void AddCrystal()
     {
         Cristal = Cristal + IncomeCount;
-        CristalText.text = Cristal.ToString();
+        CristalText.text = Cristal.ToString() + "C";
 
         IncomeCount = 0;
-        IncomeCountTxt.text = IncomeCount.ToString();
+        IncomeCountTxt.text = IncomeCount.ToString() + "C";
+    }
+    public void AddMoney()
+    {
+        Invoke("AddMoneyforBot", 2);
+    }
+    public void AddMoneyforBot()
+    {
+        StartCoroutine(AdMoney());
+    }
+    IEnumerator AdMoney()
+    {
+        int money = 0;
+        while (money < 10)
+        {
+            Money += 1;
+            money += 1;
+            MoneyText.text = Money.ToString();
+
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+    public void DeleteSave()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+    public void SetWeen()
+    {
+        Ween.SetActive(true);
+        Enemy.SetActive(false);
+        winnPrize = (loosePrizecoef * 2) + lvl;
+        WinnPrizeText.text = winnPrize.ToString() + "C";
+        lvl++; 
+        PlayerPrefs.SetInt("lvl", lvl);
+    }
+    public void SetLoose()
+    {
+        Loose.SetActive(true);
+        Enemy.SetActive(false);
+        loosePrize = loosePrizecoef + lvl;
+        loosePrizeText.text = loosePrize.ToString() + "C";
+    }
+    public void Restart()
+    {
+        SceneManager.LoadScene(0);
     }
 }

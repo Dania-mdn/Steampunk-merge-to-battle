@@ -8,8 +8,8 @@ public class Arrow : Enemy
     {
         enemyPosition = GetComponent<EnemyPosition>();
         enemyPosition.SwordOrArrow = 1;
-        health = PlayerPrefs.GetInt("swordHP");
-        damage = PlayerPrefs.GetInt("swordDamage");
+        health = PlayerPrefs.GetInt("arrowHP");
+        damage = PlayerPrefs.GetInt("arrowDamage");
         slider.maxValue = health;
         slider.value = health;
     }

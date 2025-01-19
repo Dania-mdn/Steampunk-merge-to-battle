@@ -6,7 +6,7 @@ public class AFight : Fight
 {
     public Transform target;
     private Enemy enemy;
-    private float speed;
+    public float speed;
     private float coldawn;
     private float distance;
     private int j;
@@ -62,7 +62,7 @@ public class AFight : Fight
         }
         else
         {
-            speed = 3;
+            speed = 2;
             coldawn = 0;
         }
     }
@@ -71,7 +71,7 @@ public class AFight : Fight
     {
         if (collision.GetComponent<Bot>() != null)
         {
-            Gun.Play();
+            //Gun.Play();
             collision.GetComponent<Bot>().hit(enemy.damage);
             coldawn = 2;
         }

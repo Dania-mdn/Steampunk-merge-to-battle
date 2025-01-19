@@ -8,10 +8,10 @@ using UnityEngine.UIElements;
 public class Castl : MonoBehaviour
 {
     private int Health;
+    public GameObject Arena;
 
     public GameObject[] Tower;
     public GameObject Enviroment;
-    public GameObject Platforma;
     public SpuwnEnemy spuwnEnemy;
 
     public PlatformPosition[] PositionPlatform;
@@ -26,12 +26,11 @@ public class Castl : MonoBehaviour
 
     private void Start()
     {
-        Platforma.SetActive(false);
+        Arena.SetActive(false);
     }
     public void StartGame()
     {
         Health = ui.healthCastl;
-        Platforma.SetActive(true);
         EventManager.DoStartGame();
         spuwnEnemy.startGame = true;
     }
@@ -94,6 +93,7 @@ public class Castl : MonoBehaviour
                 Mediate = hit.transform.gameObject;
                 Mediate.GetComponent<EnemyPosition>().Take();
                 EventManager.DooffRaycastColission(2);
+                Arena.SetActive(true);
             }
         }
     }
@@ -108,6 +108,7 @@ public class Castl : MonoBehaviour
                 EventManager.DooffRaycastColission(6);
             }
         }
+        Arena.SetActive(false);
     }
     public void HitCastl()
     {
@@ -126,14 +127,14 @@ public class Castl : MonoBehaviour
         if (ui.Cristal - ui.tPrice > -1)
         {
             ui.Cristal = ui.Cristal - ui.tPrice;
-            ui.CristalText.text = ui.Cristal.ToString();
+            ui.CristalText.text = ui.Cristal.ToString() + "C";
 
             if (Tower[0].activeSelf == false)
             {
                 Tower[0].SetActive(true);
                 ui.Tower.text = 1.ToString();
                 ui.tPrice = ui.tPrice + ui.tPriceAd;
-                ui.tPriceText.text = ui.tPrice.ToString();
+                ui.tPriceText.text = ui.tPrice.ToString() + "C";
             }
             else if (Tower[1].activeSelf == false)
             {

@@ -9,6 +9,7 @@ public class EventManager : MonoBehaviour
     public static event Action StartGame;
     public static event Action EndGame;
     public static event Action WeenGame;
+    public static event Action addMoney;
     public static void DooffRaycastColission(int layer)
     {
         offRaycastColission?.Invoke(layer);
@@ -24,5 +25,9 @@ public class EventManager : MonoBehaviour
     public static void DoWeenGame()
     {
         WeenGame?.Invoke();
+    }
+    public static void DoAddMoney()
+    {
+        addMoney?.Invoke();
     }
 }

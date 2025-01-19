@@ -6,7 +6,7 @@ public class SFight : Fight
 {
     public Transform target;
     private Enemy enemy;
-    private float speed;
+    public float speed;
     private float coldawn;
     private float distance;
     private int j;
@@ -50,7 +50,7 @@ public class SFight : Fight
             speed = 0;
             if (coldawn <= 0)
             {
-                Contact(target.gameObject);
+                Contact();
                 coldawn = 1;
             }
             else
@@ -60,21 +60,28 @@ public class SFight : Fight
         }
         else
         {
-            speed = 3;
+            if (speed == 0)
+            {
+                Invoke("SetSpeed", 0.5f);
+            }
             coldawn = 0;
         }
     }
 
-    private void Contact(GameObject collision)
+    private void SetSpeed()
     {
-        if (collision.GetComponent<Bot>() != null)
+        speed = 2;
+    }
+    private void Contact()
+    {
+        if (target.gameObject.GetComponent<Bot>() != null)
         {
-            collision.GetComponent<Bot>().hit(enemy.damage);
+            target.gameObject.GetComponent<Bot>().hit(enemy.damage);
             coldawn = 2;
         }
-        else if (collision.GetComponent<EnemyCastl>() != null)
+        else if (target.gameObject.GetComponent<EnemyCastl>() != null)
         {
-            collision.GetComponent<EnemyCastl>().HitCastl();
+            target.gameObject.GetComponent<EnemyCastl>().HitCastl();
         }
     }
 }

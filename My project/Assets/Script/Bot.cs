@@ -8,11 +8,12 @@ using TMPro;
 
 public class Bot : MonoBehaviour
 {
+    public GameObject AnimationGO;
     public Transform target;
     public SpuwnEnemy spuwnEnemy;
     public int damage;
     public int health;
-    private float speed;
+    public float speed;
     public int lvl;
     public GameObject[] lvlMesh;
     private float distance;
@@ -23,6 +24,7 @@ public class Bot : MonoBehaviour
 
     private void Start()
     {
+        AnimationGO.SetActive(false);
         distance = Vector3.Distance(transform.position, spuwnEnemy.PlayerEnemy[0].transform.position);
         slider.maxValue = health;
         hptxt.text = slider.maxValue.ToString();
@@ -78,9 +80,16 @@ public class Bot : MonoBehaviour
         }
         else
         {
-            speed = 3;
+            if (speed == 0)
+            {
+                Invoke("SetSpeed", 0.5f);
+            }
             coldawn = 0;
         }
+    }
+    private void SetSpeed()
+    {
+        speed = 2;
     }
     private void Contact(GameObject collision)
     {
@@ -122,7 +131,15 @@ public class Bot : MonoBehaviour
         }
         else
         {
-            Destroy(gameObject);
+            AnimationGO.SetActive(true);
+            AnimationGO.transform.parent = null;
+            EventManager.DoAddMoney();
+            Destroy();
         }
+    }
+    private void Destroy()
+    {
+        lvlMesh[lvl].transform.parent = null;
+        Destroy(gameObject);
     }
 }

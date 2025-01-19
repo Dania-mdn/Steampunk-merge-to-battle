@@ -44,7 +44,7 @@ public class EnemyPosition : MonoBehaviour
         {
             transform.position = hitDown.point;
             transform.parent = Enviroment.transform;
-            transform.localScale = new Vector3(0.4f, 0.4f, 0.4f);
+            transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
             spuwnEnemy.AddPlayerEnemy(gameObject);
 
             fight.enabled = true;

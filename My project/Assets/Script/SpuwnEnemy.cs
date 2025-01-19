@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpuwnEnemy : MonoBehaviour
 {
+    public UI ui;
     public GameObject EnemyCastl;
     public GameObject PlayerCastl;
     public GameObject prefabSword;
