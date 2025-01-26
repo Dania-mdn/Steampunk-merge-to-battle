@@ -12,8 +12,7 @@ public class UI : MonoBehaviour
     public TextMeshProUGUI lvlTitle;
     private int lvl;
     public int loosePrizecoef = 15;
-    private int loosePrize;
-    private int winnPrize;
+    private int Prize;
     private int coef;
     public TextMeshProUGUI LoosForCoef;
     public TextMeshProUGUI WinForCoef;
@@ -94,6 +93,17 @@ public class UI : MonoBehaviour
     }
     private void Start()
     {
+        if (PlayerPrefs.HasKey("CristalForLVL"))
+        {
+            Cristal = PlayerPrefs.GetInt("Cristal") + PlayerPrefs.GetInt("CristalForLVL");
+            PlayerPrefs.DeleteKey("CristalForLVL"); 
+            PlayerPrefs.SetInt("Cristal", Cristal);
+        }
+        else
+        {
+            Cristal = PlayerPrefs.GetInt("Cristal");
+        }
+        
         SliderIncome.maxValue = Coldawn;
         IncomeCountTxt.text = IncomeCount.ToString() + "C";
         IncomeCountTxtButton.text = IncomeCountAdd.ToString();
@@ -167,8 +177,8 @@ public class UI : MonoBehaviour
             coef = 1;
         }
 
-        WinForCoef.text = (winnPrize * coef).ToString();
-        LoosForCoef.text = (loosePrize * coef).ToString();
+        WinForCoef.text = (Prize * coef).ToString();
+        LoosForCoef.text = (Prize * coef).ToString();
     }
     public void AddIncome()
     {
@@ -206,7 +216,7 @@ public class UI : MonoBehaviour
     }
     public void AddCrystalWinn()
     {
-        Cristal = Cristal + winnPrize;
+        Cristal = Cristal + Prize;
         CristalText.text = Cristal.ToString() + "C";
 
         IncomeCount = 0;
@@ -214,7 +224,7 @@ public class UI : MonoBehaviour
     }
     public void AddCrystalLoose()
     {
-        Cristal = Cristal + loosePrize;
+        Cristal = Cristal + Prize;
         CristalText.text = Cristal.ToString() + "C";
 
         IncomeCount = 0;
@@ -294,8 +304,8 @@ public class UI : MonoBehaviour
     {
         Ween.SetActive(true);
         Enemy.SetActive(false);
-        winnPrize = (loosePrizecoef * 2) + lvl;
-        WinnPrizeText.text = winnPrize.ToString() + "C";
+        Prize = (loosePrizecoef * 2) + lvl;
+        WinnPrizeText.text = Prize.ToString() + "C";
         lvl++; 
         PlayerPrefs.SetInt("lvl", lvl);
     }
@@ -303,11 +313,17 @@ public class UI : MonoBehaviour
     {
         Loose.SetActive(true);
         Enemy.SetActive(false);
-        loosePrize = loosePrizecoef + lvl;
-        loosePrizeText.text = loosePrize.ToString() + "C";
+        Prize = loosePrizecoef + lvl;
+        loosePrizeText.text = Prize.ToString() + "C";
     }
-    public void Restart()
+    public void NoThanks()
     {
+        PlayerPrefs.SetInt("CristalForLVL", Prize * coef);
+        SceneManager.LoadScene(0);
+    }
+    public void TakeBonus()
+    {
+        PlayerPrefs.SetInt("CristalForLVL", Prize * coef);
         SceneManager.LoadScene(0);
     }
 }

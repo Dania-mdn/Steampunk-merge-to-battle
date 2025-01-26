@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: c82a334cf5a5e47978749c210cee72a7, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -37,8 +37,8 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17552692, g: 0.21962784, b: 0.3019518, a: 1}
+  m_Sun: {fileID: 410087040}
+  m_IndirectSpecularColor: {r: 0.015113525, g: 0.009046665, b: 0.014095025, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -339,7 +339,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 46505149}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 596359241}
+        m_TargetAssemblyTypeName: UI, Assembly-CSharp
+        m_MethodName: TakeBonus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &46505149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2999,6 +3011,89 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &454648791
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 92ec4a843716f74478a86490761141c7,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 87.375084
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 92ec4a843716f74478a86490761141c7,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 87.375084
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 92ec4a843716f74478a86490761141c7,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 87.375084
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 92ec4a843716f74478a86490761141c7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.68
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 92ec4a843716f74478a86490761141c7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.66
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 92ec4a843716f74478a86490761141c7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 35.74
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 92ec4a843716f74478a86490761141c7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.33048847
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 92ec4a843716f74478a86490761141c7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.3304886
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 92ec4a843716f74478a86490761141c7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.6251219
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 92ec4a843716f74478a86490761141c7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.6251219
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 92ec4a843716f74478a86490761141c7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 92ec4a843716f74478a86490761141c7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 92ec4a843716f74478a86490761141c7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -124.271
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 92ec4a843716f74478a86490761141c7,
+        type: 3}
+      propertyPath: m_Name
+      value: Locomotive
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 92ec4a843716f74478a86490761141c7, type: 3}
 --- !u!1 &473690658
 GameObject:
   m_ObjectHideFlags: 0
@@ -4450,7 +4545,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 574533613}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 596359241}
+        m_TargetAssemblyTypeName: UI, Assembly-CSharp
+        m_MethodName: TakeBonus
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &574533613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4704,7 +4811,7 @@ MonoBehaviour:
   tablo2: {fileID: 549251770}
   Cristal: 1000
   CristalText: {fileID: 1967530546}
-  Money: 100
+  Money: 20
   MoneyText: {fileID: 1364629701}
   Enemy: {fileID: 537240896}
   Ween: {fileID: 1485542423}
@@ -4910,7 +5017,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 596359241}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: Restart
+        m_MethodName: NoThanks
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7398,7 +7505,7 @@ MonoBehaviour:
   positionSpuwn: {fileID: 1918572286}
   enemy: []
   PlayerEnemy: []
-  culdawn: 6
+  culdawn: 4
   startGame: 0
 --- !u!1 &989404302
 GameObject:
@@ -10612,7 +10719,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 596359241}
         m_TargetAssemblyTypeName: UI, Assembly-CSharp
-        m_MethodName: Restart
+        m_MethodName: NoThanks
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -29724,3 +29831,4 @@ SceneRoots:
   - {fileID: 596359240}
   - {fileID: 330585546}
   - {fileID: 988536011}
+  - {fileID: 454648791}
