@@ -44,6 +44,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
+            EventManager.DoDestroy();
             lvlMesh[lvl].transform.parent = null;
             Destroy(gameObject);
         }

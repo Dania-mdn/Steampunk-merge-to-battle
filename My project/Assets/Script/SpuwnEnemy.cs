@@ -20,11 +20,37 @@ public class SpuwnEnemy : MonoBehaviour
     {
         EventManager.EndGame += setSpuwnEnemy;
         EventManager.WeenGame += setSpuwnEnemy;
+        EventManager.Destroy += Destroy;
+        EventManager.DestroyEnemy += DestroyEnemy;
     }
     private void OnDisable()
     {
         EventManager.EndGame -= setSpuwnEnemy;
         EventManager.WeenGame -= setSpuwnEnemy;
+        EventManager.Destroy -= Destroy;
+        EventManager.DestroyEnemy -= DestroyEnemy;
+    }
+    private void Destroy()
+    {
+        for (int i = 1; i < PlayerEnemy.Length; i++)
+        {
+            if(PlayerEnemy[i] != null)
+            {
+                PlayerEnemy[i] = PlayerEnemy[i + 1];
+                PlayerEnemy[i + 1] = null;
+            }
+        }
+    }
+    private void DestroyEnemy()
+    {
+        for (int i = 1; i < enemy.Length; i++)
+        {
+            if(enemy[i] != null)
+            {
+                enemy[i] = enemy[i + 1];
+                enemy[i + 1] = null;
+            }
+        }
     }
     private void setSpuwnEnemy()
     {

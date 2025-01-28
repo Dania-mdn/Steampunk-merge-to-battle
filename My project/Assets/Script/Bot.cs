@@ -17,7 +17,6 @@ public class Bot : MonoBehaviour
     public int lvl;
     public GameObject[] lvlMesh;
     private float distance;
-    private int j;
     private float coldawn;
     public Slider slider;
     public TextMeshProUGUI hptxt;
@@ -33,28 +32,14 @@ public class Bot : MonoBehaviour
 
     private void Update()
     {
-        for (int i = 0; i < spuwnEnemy.PlayerEnemy.Length; i++)
+        if (spuwnEnemy.PlayerEnemy[1] != null)
         {
-            if (spuwnEnemy.PlayerEnemy[i] != null)
-            {
-                if (distance > Vector3.Distance(transform.position, spuwnEnemy.PlayerEnemy[i].transform.position))
-                {
-                    distance = Vector3.Distance(transform.position, spuwnEnemy.PlayerEnemy[i].transform.position);
-                    j = i;
-                }
-                else
-                {
-                    distance = Vector3.Distance(transform.position, spuwnEnemy.PlayerEnemy[0].transform.position);
-                    j = i;
-                }
-            }
-        }
-        if (spuwnEnemy.PlayerEnemy[j] != null)
-        {
-            target = spuwnEnemy.PlayerEnemy[j].transform;
+            distance = Vector3.Distance(transform.position, spuwnEnemy.PlayerEnemy[1].transform.position);
+            target = spuwnEnemy.PlayerEnemy[1].transform;
         }
         else
         {
+            distance = Vector3.Distance(transform.position, spuwnEnemy.PlayerEnemy[0].transform.position);
             target = spuwnEnemy.PlayerEnemy[0].transform;
         }
 
@@ -65,7 +50,7 @@ public class Bot : MonoBehaviour
         Quaternion rotation = Quaternion.LookRotation(direction);
         transform.rotation = rotation;
 
-        if (distance <= 0.5f)
+        if (distance <= 1)
         {
             speed = 0; 
             if (coldawn <= 0)
@@ -134,6 +119,7 @@ public class Bot : MonoBehaviour
             AnimationGO.SetActive(true);
             AnimationGO.transform.parent = null;
             EventManager.DoAddMoney();
+            EventManager.DoDestroyEnemy();
             Destroy();
         }
     }

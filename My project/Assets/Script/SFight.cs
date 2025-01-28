@@ -9,7 +9,6 @@ public class SFight : Fight
     public float speed;
     private float coldawn;
     private float distance;
-    private int j;
 
     private void Start()
     {
@@ -19,18 +18,10 @@ public class SFight : Fight
 
     private void Update()
     {
-        for (int i = 1; i < spuwnEnemy.enemy.Length; i++)
+        if (spuwnEnemy.enemy[1] != null)
         {
-            if (spuwnEnemy.enemy[i] != null)
-            {
-                distance = Vector3.Distance(transform.position, spuwnEnemy.enemy[i].transform.position);
-                j = i;
-                break;
-            }
-        }
-        if (spuwnEnemy.enemy[j] != null)
-        {
-            target = spuwnEnemy.enemy[j].transform;
+            target = spuwnEnemy.enemy[1].transform;
+            distance = Vector3.Distance(transform.position, spuwnEnemy.enemy[1].transform.position);
         }
         else
         {
@@ -45,7 +36,7 @@ public class SFight : Fight
         Quaternion rotation = Quaternion.LookRotation(direction);
         transform.rotation = rotation;
 
-        if (distance <= 0.5f)
+        if (distance <= 1)
         {
             speed = 0;
             if (coldawn <= 0)
